@@ -1,7 +1,0 @@
-dependencies: \
-  /Users/simonhards/Dropbox/Oliver's\ Homework/Tonbridge\ Novi/DC/Coding/tonbridgeMap/node_modules/react-native/React/Base/RCTPlatform.m \
-  /Users/simonhards/Dropbox/Oliver's\ Homework/Tonbridge\ Novi/DC/Coding/tonbridgeMap/node_modules/react-native/React/Base/RCTPlatform.h \
-  /Users/simonhards/Dropbox/Oliver's\ Homework/Tonbridge\ Novi/DC/Coding/tonbridgeMap/node_modules/react-native/React/Base/RCTBridgeModule.h \
-  /Users/simonhards/Dropbox/Oliver's\ Homework/Tonbridge\ Novi/DC/Coding/tonbridgeMap/node_modules/react-native/React/Base/RCTDefines.h \
-  /Users/simonhards/Dropbox/Oliver's\ Homework/Tonbridge\ Novi/DC/Coding/tonbridgeMap/node_modules/react-native/React/Base/RCTUtils.h \
-  /Users/simonhards/Dropbox/Oliver's\ Homework/Tonbridge\ Novi/DC/Coding/tonbridgeMap/node_modules/react-native/React/Base/RCTAssert.h

@@ -1,8 +1,8 @@
 'use strict';
-var rx = require('rx-lite');
+var rx = require('rx');
 
 function normalizeKeypressEvents(value, key) {
-  return { value: value, key: key || {} };
+  return {value: value, key: key || {}};
 }
 
 module.exports = function (rl) {

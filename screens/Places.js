@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 import {
   Text,
   StyleSheet,
@@ -9,57 +9,57 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
-} from 'react-native'
-import _ from 'lodash'
+} from "react-native"
+import _ from "lodash"
 
-import { facilities, ordererFacilities } from '../API/facilities'
-import Container from './Container'
-import { Paragraph, SubHeader } from '../components/TextCard'
-import colors from '../components/colors'
+import { facilities, ordererFacilities } from "../API/facilities"
+import Container from "./Container"
+import { Paragraph, SubHeader } from "../components/TextCard"
+import colors from "../components/colors"
 
 class Places extends React.Component {
   static navigationOptions = {
-    title: 'Facilities',
+    title: "Facilities",
     headerTintColor: colors.white,
     headerStyle: {
       backgroundColor: colors.tonbridgeBlue,
     },
   }
 
-  state = { text: '', data: facilities, status: 'ready' }
+  state = { text: "", data: facilities, status: "ready" }
 
-  onSearch = (text) => {
+  onSearch = text => {
     let data = facilities
     let status = this.state.status
-    if (text !== '') {
+    if (text !== "") {
       // console.log('filtering places for text:', text)
       data = _.filter(
         facilities,
         item =>
           _.includes(item.name.toLowerCase(), text.toLowerCase()) ||
           _.includes(item.description.toLowerCase(), text.toLowerCase()) ||
-          _.includes(item.type.toLowerCase(), text.toLowerCase()),
+          _.includes(item.type.toLowerCase(), text.toLowerCase())
       )
-      status = data.length > 0 ? 'found' : 'empty'
+      status = data.length > 0 ? "found" : "empty"
     }
 
     this.setState({ text, data, status })
   }
 
-  onNavigateToInfo = (item) => {
-    this.props.navigation.navigate('Info', item)
+  onNavigateToInfo = item => {
+    this.props.navigation.navigate("Info", item)
   }
 
-  onFocus = () => this.setState({ status: 'focus' })
-  onBlur = () => this.setState({ status: 'ready' })
+  onFocus = () => this.setState({ status: "focus" })
+  onBlur = () => this.setState({ status: "ready" })
 
   getBorder = () => {
     switch (this.state.status) {
-      case 'found':
+      case "found":
         return styles.borderFound
-      case 'empty':
+      case "empty":
         return styles.borderEmpty
-      case 'focus':
+      case "focus":
         return styles.borderFocus
       default:
         return styles.border
@@ -88,7 +88,7 @@ class Places extends React.Component {
   )
 
   render() {
-    const searching = this.state.text !== ''
+    const searching = this.state.text !== ""
     const border = this.getBorder()
 
     return (
@@ -108,21 +108,21 @@ class Places extends React.Component {
         />
 
         {searching
-          ? this.state.status === 'empty'
+          ? this.state.status === "empty"
               ? <Paragraph>Nothing found</Paragraph>
               : <FlatList
-                style={styles.list}
-                data={this.state.data}
-                keyExtractor={this.keyExtractor}
-                renderItem={this.renderItem}
-              />
+                  style={styles.list}
+                  data={this.state.data}
+                  keyExtractor={this.keyExtractor}
+                  renderItem={this.renderItem}
+                />
           : <SectionList
-            style={styles.list}
-            sections={ordererFacilities}
-            renderSectionHeader={this.renderSectionHeader}
-            keyExtractor={this.keyExtractor}
-            renderItem={this.renderItem}
-          />}
+              style={styles.list}
+              sections={ordererFacilities}
+              renderSectionHeader={this.renderSectionHeader}
+              keyExtractor={this.keyExtractor}
+              renderItem={this.renderItem}
+            />}
       </Container>
     )
   }
@@ -130,15 +130,15 @@ class Places extends React.Component {
 
 const styles = StyleSheet.create({
   list: {
-    width: '100%',
+    width: "100%",
   },
   header: {
-    marginTop: 20,
+    backgroundColor: colors.opaqueWhite,
   },
   image: {
     flex: 1,
-    height: Dimensions.get('window').height / 3,
-    width: '100%',
+    height: Dimensions.get("window").height / 3,
+    width: "100%",
   },
   title: {
     top: 0,
@@ -153,14 +153,14 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 14,
-    color: 'lightsteelblue',
+    color: "lightsteelblue",
     backgroundColor: colors.transparent,
   },
   input: {
-    height: 45,
+    height: 40,
     margin: 10,
     fontSize: 18,
-    width: '100%' - 20,
+    width: "100%" - 20,
     paddingHorizontal: 10,
   },
   border: {

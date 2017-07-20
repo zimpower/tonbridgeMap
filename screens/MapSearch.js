@@ -1,9 +1,9 @@
-import React from 'react'
-import { StyleSheet, View, Text, Button } from 'react-native'
+import React from "react"
+import { StyleSheet, View, Text, Button } from "react-native"
 
-import MapView from 'react-native-maps'
-import { facilities, school } from '../API/facilities'
-import colors from '../components/colors'
+import MapView from "react-native-maps"
+import { facilities, school } from "../API/facilities"
+import colors from "../components/colors"
 
 const GEOLOCATION_OPTIONS = {
   enableHighAccuracy: true,
@@ -20,7 +20,7 @@ const DEFAULT_REGION = {
 
 class MapSearch extends React.Component {
   static navigationOptions = {
-    title: 'Map',
+    title: "Map",
     headerTintColor: colors.white,
     headerStyle: {
       backgroundColor: colors.tonbridgeBlue,
@@ -35,7 +35,7 @@ class MapSearch extends React.Component {
     const location =
       (params && this.props.navigation.state.params.location) || null
     // console.log('Location:', location)
-    const name = (params && this.props.navigation.state.params.name) || ''
+    const name = (params && this.props.navigation.state.params.name) || ""
 
     this.setState({ name })
     if (location) {
@@ -43,12 +43,12 @@ class MapSearch extends React.Component {
     } else {
       navigator.geolocation.getCurrentPosition(
         position => this.updateLocation(position.coords),
-        error => console.log('Geolocation error:', JSON.stringify(error)),
-        GEOLOCATION_OPTIONS,
+        error => console.log("Geolocation error:", JSON.stringify(error)),
+        GEOLOCATION_OPTIONS
       )
       this.watchID = navigator.geolocation.watchPosition(
         position => this.updateLocation(position.coords),
-        GEOLOCATION_OPTIONS,
+        GEOLOCATION_OPTIONS
       )
     }
   }
@@ -57,11 +57,11 @@ class MapSearch extends React.Component {
     navigator.geolocation.clearWatch(this.watchID)
   }
 
-  onRegionChange = (region) => {
+  onRegionChange = region => {
     this.setState({ region })
   }
 
-  updateLocation = (coords) => {
+  updateLocation = coords => {
     const location = { longitude: coords.longitude, latitude: coords.latitude }
     // console.log('location:', location)
     const region = {
@@ -83,7 +83,7 @@ class MapSearch extends React.Component {
     this.zoomToLocation(this.state.location)
   }
 
-  zoomToLocation = (location) => {
+  zoomToLocation = location => {
     const markers = [location]
     // console.log('markers', markers)
     this.map.fitToCoordinates(markers, {
@@ -97,7 +97,7 @@ class MapSearch extends React.Component {
       <View style={styles.container}>
 
         <MapView
-          ref={ref => (this.map = ref)}
+          ref={ref => this.map = ref}
           mapType="hybrid"
           showsUserLocation
           followUserLocation
@@ -115,7 +115,7 @@ class MapSearch extends React.Component {
                 fillColor={place.fillColor}
                 strokeColor={place.strokeColor}
                 strokeWidth={place.strokeWidth}
-              />,
+              />
           )}
           {this.state.location &&
             <MapView.Marker
@@ -149,11 +149,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white,
-    alignItems: 'center',
+    alignItems: "center",
   },
   map: {
-    height: '75%',
-    width: '100%',
+    height: "75%",
+    width: "100%",
   },
   marker: {
     backgroundColor: colors.alphaWhite,
