@@ -9,6 +9,7 @@ import {
   Platform,
 } from "react-native"
 import codePush from "react-native-code-push"
+import DeviceInfo from "react-native-device-info"
 
 import Container from "./Container"
 import colors from "../components/colors"
@@ -22,7 +23,11 @@ class Home extends React.Component {
     },
   }
 
-  state = { version: "", label: "" }
+  state = {
+    version: "",
+    label: "",
+    appVersion: DeviceInfo.getReadableVersion(),
+  }
 
   componentDidMount() {
     codePush.getUpdateMetadata().then(metadata => {
@@ -35,7 +40,7 @@ class Home extends React.Component {
       }
     })
     codePush.getCurrentPackage().then(update => {
-      console.log("####### CodePush", update)
+      console.log("####### CodePush update:", update)
     })
   }
 
@@ -75,6 +80,10 @@ class Home extends React.Component {
           color={colors.tonbridgeRed}
           accessibilityLabel="Learn more about Tonbridge School"
         />
+
+        <Text style={styles.appversion}>
+          {"Version: " + this.state.appVersion}
+        </Text>
 
         <Text style={styles.version}>
           {"Content: " + this.state.version + this.state.label}
@@ -118,6 +127,14 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 5,
     right: 5,
+    padding: 5,
+    fontSize: 12,
+    color: colors.tonbridgeBlue75,
+  },
+  appversion: {
+    position: "absolute",
+    bottom: 5,
+    left: 5,
     padding: 5,
     fontSize: 12,
     color: colors.tonbridgeBlue75,

@@ -1,5 +1,5 @@
-app_identifier "org.reactjs.native.example.tonbridgeMap" # The bundle identifier of your app
-apple_id "simonhards@mac.com" # Your Apple email address
+app_identifier "com.tonbridgeschool.map" # The bundle identifier of your app
+apple_id "simonhards@me.com" # Your Apple email address
 
 team_id "7NBJU7J63E" # Developer Portal Team ID
 
