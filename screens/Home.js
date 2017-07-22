@@ -18,43 +18,26 @@ class Home extends React.Component {
   static navigationOptions = {
     title: "TONBRIDGE SCHOOL",
     headerTintColor: colors.white,
-    headerStyle: {
-      backgroundColor: colors.tonbridgeBlue,
-    },
+    headerStyle: { backgroundColor: colors.tonbridgeBlue },
   }
 
   state = {
-    version: "",
-    label: "",
-    appVersion: DeviceInfo.getReadableVersion(),
+    content: null,
+    version: DeviceInfo.getReadableVersion(),
   }
 
   componentDidMount() {
     codePush.getUpdateMetadata().then(metadata => {
       if (metadata) {
         console.log("metadata:", metadata)
-        this.setState({
-          label: metadata.label,
-          version: metadata.appVersion,
-        })
+        this.setState({ content: metadata.appVersion + metadata.label })
       }
     })
-    codePush.getCurrentPackage().then(update => {
-      console.log("####### CodePush update:", update)
-    })
   }
 
-  onNavigateToAbout = () => {
-    this.props.navigation.navigate("About")
-  }
-
-  onNavigateToPlaces = () => {
-    this.props.navigation.navigate("Places")
-  }
-
-  onNavigateToMap = () => {
-    this.props.navigation.navigate("MapSearch")
-  }
+  onNavigateToAbout = () => this.props.navigation.navigate("About")
+  onNavigateToPlaces = () => this.props.navigation.navigate("Places")
+  onNavigateToMap = () => this.props.navigation.navigate("MapSearch")
 
   render = () => (
     <Container>
@@ -81,16 +64,15 @@ class Home extends React.Component {
           accessibilityLabel="Learn more about Tonbridge School"
         />
 
-        <Text style={styles.appversion}>
-          {"Version: " + this.state.appVersion}
-        </Text>
-
         <Text style={styles.version}>
-          {"Content: " + this.state.version + this.state.label}
+          {"Version: " + this.state.version}
         </Text>
 
+        {this.state.content &&
+          <Text style={styles.content}>
+            {"Content: " + this.state.content}
+          </Text>}
       </View>
-
     </Container>
   )
 }
@@ -120,10 +102,9 @@ const styles = StyleSheet.create({
   },
   button: {
     margin: 20,
-    // padding: 10,
     fontSize: 20,
   },
-  version: {
+  content: {
     position: "absolute",
     bottom: 5,
     right: 5,
@@ -131,7 +112,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: colors.tonbridgeBlue75,
   },
-  appversion: {
+  version: {
     position: "absolute",
     bottom: 5,
     left: 5,
