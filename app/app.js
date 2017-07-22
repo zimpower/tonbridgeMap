@@ -1,4 +1,3 @@
-// import React from 'react'
 import { StackNavigator } from "react-navigation"
 
 import MapSearch from "./screens/MapSearch"

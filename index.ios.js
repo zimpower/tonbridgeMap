@@ -1,9 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-import App from "./App.js"
+import App from "./app/app"
 import { AppRegistry } from "react-native"
 import codePush from "react-native-code-push"
 
