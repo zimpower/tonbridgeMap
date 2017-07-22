@@ -1,8 +1,36 @@
 import App from "./app/app"
-import { AppRegistry } from "react-native"
+import { AsyncStorage, AppRegistry } from "react-native"
 import codePush from "react-native-code-push"
+import DeviceInfo from "react-native-device-info"
 
 class CodePushApp extends App {
+  componentDidMount() {
+    this.saveAppVersion()
+    this.saveContentVersion()
+  }
+
+  // Save the app ios version to disk
+  saveAppVersion = () => {
+    try {
+      AsyncStorage.setItem("version", DeviceInfo.getReadableVersion())
+    } catch (err) {
+      console.log("Error saving version: ", err)
+    }
+  }
+
+  // Save the app code-push content version to disk
+  saveContentVersion = () => {
+    codePush.getUpdateMetadata().then(metadata => {
+      if (metadata) {
+        try {
+          AsyncStorage.setItem("content", metadata.appVersion + metadata.label)
+        } catch (err) {
+          console.log("Error saving content version: ", err)
+        }
+      }
+    })
+  }
+
   codePushStatusDidChange(status) {
     switch (status) {
       case codePush.SyncStatus.CHECKING_FOR_UPDATE:
@@ -19,6 +47,7 @@ class CodePushApp extends App {
         break
       case codePush.SyncStatus.UPDATE_INSTALLED:
         console.log("TB School: Update installed.")
+        this.saveContentVersion()
         break
     }
   }

@@ -6,10 +6,8 @@ import {
   Image,
   Button,
   Text,
-  Platform,
+  AsyncStorage,
 } from "react-native"
-import codePush from "react-native-code-push"
-import DeviceInfo from "react-native-device-info"
 
 import Container from "./Container"
 import colors from "../components/colors"
@@ -23,15 +21,20 @@ class Home extends React.Component {
 
   state = {
     content: null,
-    version: DeviceInfo.getReadableVersion(),
+    version: null,
   }
 
   componentDidMount() {
-    codePush.getUpdateMetadata().then(metadata => {
-      if (metadata) {
-        console.log("metadata:", metadata)
-        this.setState({ content: metadata.appVersion + metadata.label })
-      }
+    setTimeout(this.loadVersions, 500)
+  }
+
+  loadVersions = () => {
+    AsyncStorage.getItem("content", (err, result) => {
+      this.setState({ content: result })
+    })
+
+    AsyncStorage.getItem("version", (err, result) => {
+      this.setState({ version: result })
     })
   }
 
@@ -64,9 +67,10 @@ class Home extends React.Component {
           accessibilityLabel="Learn more about Tonbridge School"
         />
 
-        <Text style={styles.version}>
-          {"Version: " + this.state.version}
-        </Text>
+        {this.state.version &&
+          <Text style={styles.version}>
+            {"Version: " + this.state.version}
+          </Text>}
 
         {this.state.content &&
           <Text style={styles.content}>
