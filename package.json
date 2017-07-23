@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "code-push-ls": "code-push deployment ls TonbridgeMapp-iOS -k",
+    "code-push-deploy": "code-push release-react TonbridgeMapp-iOS ios --deploymentName Production"
   },
   "dependencies": {
     "react": "16.0.0-alpha.12",

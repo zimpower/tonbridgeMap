@@ -25,7 +25,7 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(this.loadVersions, 500)
+    setTimeout(this.loadVersions, 250)
   }
 
   loadVersions = () => {
