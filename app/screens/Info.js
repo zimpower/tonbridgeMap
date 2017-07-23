@@ -1,20 +1,20 @@
-import React from 'react'
+import React from "react"
 import {
   StyleSheet,
   View,
   ScrollView,
   Dimensions,
   TouchableWithoutFeedback,
-} from 'react-native'
+} from "react-native"
 
-import MapView from 'react-native-maps'
+import MapView from "react-native-maps"
 
-import Container from './Container'
-import { Paragraph, Header } from '../components/TextCard'
-import colors from '../components/colors'
+import Container from "./Container"
+import { Paragraph, Header } from "../components/TextCard"
+import colors from "../components/colors"
 
 const DEFAULT_PADDING = { top: 100, right: 100, bottom: 100, left: 100 }
-const { width, height } = Dimensions.get('window')
+const { width, height } = Dimensions.get("window")
 const ASPECT_RATIO = width / height
 const LATITUDE_DELTA = 0.001
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO
@@ -42,8 +42,8 @@ class Info extends React.Component {
     this.setState({ region })
   }
 
-  onNavigateToMapSearch = (place) => {
-    this.props.navigation.navigate('MapSearch', { ...place })
+  onNavigateToMapSearch = place => {
+    this.props.navigation.navigate("MapSearch", { ...place })
   }
 
   onLayout = () => {
@@ -54,9 +54,9 @@ class Info extends React.Component {
       {
         edgePadding: DEFAULT_PADDING,
         animated: true,
-      },
+      }
     )
-    console.log('onLayout()')
+    console.log("onLayout()")
   }
 
   render = () => {
@@ -68,7 +68,7 @@ class Info extends React.Component {
             onPress={() => this.onNavigateToMapSearch(place)}
           >
             <MapView
-              ref={ref => (this.map = ref)}
+              ref={ref => this.map = ref}
               mapType="hybrid"
               showsUserLocation
               followUserLocation
@@ -110,12 +110,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white,
-    alignItems: 'center',
+    alignItems: "center",
   },
   map: {
     flex: 1,
-    height: Dimensions.get('window').height / 2,
-    width: '100%',
+    height: Dimensions.get("window").height / 2,
+    width: "100%",
   },
   description: {
     flex: 1,
