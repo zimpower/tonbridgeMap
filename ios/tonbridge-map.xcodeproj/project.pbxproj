@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -39,7 +40,6 @@
 		CF3ADED3E9474F29B48A3ED6 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8A97E99CE94E689A1D551D /* libAirMaps.a */; };
 		E12EC7F39B1C4E7E8517CE93 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C2231FF31C4BC0B730F176 /* libCodePush.a */; };
 		E25DC4B155E8485293DDFEF2 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26C240A77B374A4AB644BDCA /* libRNDeviceInfo.a */; };
-		07B221658AA1403B9D154146 /* libLRDRCTSimpleToast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49EEDAE8E7994BEF88EA2AED /* libLRDRCTSimpleToast.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -314,9 +314,8 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7C8A97E99CE94E689A1D551D /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		8FD4097374074EF8B0F20124 /* LRDRCTSimpleToast.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = LRDRCTSimpleToast.xcodeproj; path = "../node_modules/react-native-simple-toast/ios/LRDRCTSimpleToast.xcodeproj"; sourceTree = "<group>"; };
 		E1C2231FF31C4BC0B730F176 /* libCodePush.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libCodePush.a; sourceTree = "<group>"; };
-		8FD4097374074EF8B0F20124 /* LRDRCTSimpleToast.xcodeproj */ = {isa = PBXFileReference; name = "LRDRCTSimpleToast.xcodeproj"; path = "../node_modules/react-native-simple-toast/ios/LRDRCTSimpleToast.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		49EEDAE8E7994BEF88EA2AED /* libLRDRCTSimpleToast.a */ = {isa = PBXFileReference; name = "libLRDRCTSimpleToast.a"; path = "libLRDRCTSimpleToast.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,7 +346,6 @@
 				A3E50A2D18244017A449F076 /* libz.tbd in Frameworks */,
 				CF3ADED3E9474F29B48A3ED6 /* libAirMaps.a in Frameworks */,
 				E25DC4B155E8485293DDFEF2 /* libRNDeviceInfo.a in Frameworks */,
-				07B221658AA1403B9D154146 /* libLRDRCTSimpleToast.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +451,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* tonbridgeMap */ = {
+		13B07FAE1A68108700A75B9A /* tonbridge-map */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -464,7 +462,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = tonbridgeMap;
+			name = "tonbridge-map";
 			sourceTree = "<group>";
 		};
 		146834001AC3E56700842450 /* Products */ = {
@@ -562,7 +560,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* tonbridgeMap */,
+				13B07FAE1A68108700A75B9A /* tonbridge-map */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* tonbridgeMapTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -673,7 +671,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 830;
-				ORGANIZATIONNAME = Facebook;
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -694,7 +692,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "tonbridgeMap" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "tonbridge-map" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1222,6 +1220,7 @@
 				PRODUCT_NAME = tonbridgeMap;
 				PROVISIONING_PROFILE = "3950bb0f-603c-43c4-85f4-5b88398a3ec3";
 				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.tonbridgeschool.map";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1251,6 +1250,7 @@
 				PRODUCT_NAME = tonbridgeMap;
 				PROVISIONING_PROFILE = "3950bb0f-603c-43c4-85f4-5b88398a3ec3";
 				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.tonbridgeschool.map";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1513,7 +1513,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "tonbridgeMap" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "tonbridge-map" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
