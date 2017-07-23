@@ -54,7 +54,7 @@ class Home extends React.Component {
         <Button
           style={styles.button}
           onPress={this.onNavigateToAbout}
-          title="General Information"
+          title="About"
           color={colors.tonbridgeRed}
           accessibilityLabel="Learn more about Tonbridge School"
         />
